@@ -1,0 +1,74 @@
+{
+  "task": "Synthetic fixed-camera IBVS respiratory compensation \u2014 geometric beam aiming only",
+  "compensated": {
+    "mode": "compensated",
+    "visual_servoing_enabled": true,
+    "visual_error_last_px": 2.0941536349557146,
+    "successful": true,
+    "failure_reason": null,
+    "tracking_samples": 600,
+    "beam_miss_rms_mm": 2.6885376559387884,
+    "beam_miss_p95_mm": 4.221275559078074,
+    "beam_miss_max_mm": 16.11697904339197,
+    "tumour_estimation_rms_mm": 0.18203622639968142,
+    "estimated_breath_period_s": 4.0,
+    "ik_fallbacks": 0,
+    "actuator_saturated_steps": 0,
+    "max_joint_speed_rad_s": 0.2200420689281035,
+    "path_waypoints": 2,
+    "planning_iterations": 0,
+    "approach_duration_s": 5.99676221938322,
+    "robot_base_offset_world_m": [
+      -0.2,
+      0.0,
+      0.0
+    ],
+    "patient_arm_spread_m": [
+      0.0,
+      0.0
+    ]
+  },
+  "static_baseline": {
+    "mode": "static_baseline",
+    "visual_servoing_enabled": false,
+    "visual_error_last_px": null,
+    "successful": true,
+    "failure_reason": null,
+    "tracking_samples": 600,
+    "beam_miss_rms_mm": 9.996848116804946,
+    "beam_miss_p95_mm": 16.420652207510923,
+    "beam_miss_max_mm": 16.532344654990567,
+    "tumour_estimation_rms_mm": 0.18203622639968142,
+    "estimated_breath_period_s": 4.0,
+    "ik_fallbacks": 0,
+    "actuator_saturated_steps": 0,
+    "max_joint_speed_rad_s": 0.2200420689281035,
+    "path_waypoints": 2,
+    "planning_iterations": 0,
+    "approach_duration_s": 5.99676221938322,
+    "robot_base_offset_world_m": [
+      -0.2,
+      0.0,
+      0.0
+    ],
+    "patient_arm_spread_m": [
+      0.0,
+      0.0
+    ]
+  },
+  "comparison_rms_improvement_percent": 73.10614681222084,
+  "calibration_assumptions": {
+    "period_s": 4.0,
+    "chest_to_tumour_correlation": "assumed fixed and known",
+    "marker_noise_std_mm": 0.35,
+    "internal_tumour_used_by_observer": false
+  },
+  "limitations": [
+    "No real camera or ECG: camera pixels are synthetic pinhole projections with added noise",
+    "Eye-to-hand IBVS is a 2-D feature loop; 3-D depth relies on a surrogate model and IK",
+    "Synthetic internal lesion motion and fixed surrogate calibration",
+    "External marker does not directly reveal internal tumour motion",
+    "No radiation dose or clinical treatment planning",
+    "Proxy collision checks only; no exact patient mesh or self collision verification"
+  ]
+}

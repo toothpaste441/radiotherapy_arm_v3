@@ -1,0 +1,29 @@
+[
+  {
+    "experiment": "nominal_dls",
+    "ik_method": "dls",
+    "duration_s": 8.0,
+    "control_period_s": 0.02,
+    "breathing_period_s": 4.0,
+    "amplitude_scale": 1.0,
+    "initial_joint_offset_rad": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "disturbance_torque_amplitude_Nm": 0.0,
+    "gain_scale": 1.5,
+    "samples": 400,
+    "rms_tracking_error_mm": 4.817296453601831,
+    "post_1s_rms_tracking_error_mm": 5.002967272028276,
+    "p95_tracking_error_mm": 8.606930120065925,
+    "max_tracking_error_mm": 8.900398402357023,
+    "final_tracking_error_mm": 0.908064226805713,
+    "mean_ik_solve_ms": 1.7785497501972714,
+    "mean_jacobian_condition_number": 4.766507473277772,
+    "torque_squared_integral_N2m2s": 15336.503642220729
+  }
+]

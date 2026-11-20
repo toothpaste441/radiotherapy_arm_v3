@@ -1,0 +1,2 @@
+experiment,ik_method,duration_s,control_period_s,breathing_period_s,amplitude_scale,initial_joint_offset_rad,disturbance_torque_amplitude_Nm,gain_scale,samples,rms_tracking_error_mm,post_1s_rms_tracking_error_mm,p95_tracking_error_mm,max_tracking_error_mm,final_tracking_error_mm,mean_ik_solve_ms,mean_jacobian_condition_number,torque_squared_integral_N2m2s
+nominal_dls,dls,8.0,0.02,4.0,1.0,"[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",0.0,1.5,400,4.817296453601831,5.002967272028276,8.606930120065925,8.900398402357023,0.908064226805713,1.7785497501972714,4.766507473277772,15336.503642220729

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="CyberKnife_6DOF">
+
+    <compiler angle="radian" coordinate="local" meshdir="assets" />
+
+    <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" />
+
+    <visual>
+        <global offwidth="1920" offheight="1080" />
+        <headlight diffuse="0.8 0.8 0.8" ambient="0.3 0.3 0.3" specular="0.2 0.2 0.2" />
+    </visual>
+
+    <asset>
+        <mesh name="base" file="robot_assembly - robot_base_w-1.STL" scale="0.001 0.001 0.001" />
+
+        <mesh name="base_joint" file="robot_6dof/base_joint.STL" scale="0.001 0.001 0.001" />
+        <mesh name="link1" file="robot_6dof/link1.STL" scale="0.001 0.001 0.001" />
+        <mesh name="link2" file="robot_6dof/link2.STL" scale="0.001 0.001 0.001" />
+        <mesh name="wrist_yaw" file="robot_6dof/wrist_yaw.STL" scale="0.001 0.001 0.001" />
+        <mesh name="wrist_pitch" file="robot_6dof/wrist_pitch.STL" scale="0.001 0.001 0.001" />
+        <mesh name="wrist_roll" file="robot_6dof/wrist_roll.STL" scale="0.001 0.001 0.001" />
+        <mesh name="end_effector" file="robot_6dof/end_effector.STL" scale="0.001 0.001 0.001" />
+    </asset>
+
+    <worldbody>
+
+        <light pos="1 1 3" dir="-1 -1 -2" />
+
+        <body name="tumor_target" mocap="true" pos="0 0 0">
+            <geom name="tumor_marker" type="sphere" size="0.008" rgba="0.95 0.08 0.06 1" contype="0" conaffinity="0" />
+        </body>
+
+        <geom name="ground" type="plane" size="5 5 0.1" rgba="0.25 0.25 0.25 1" />
+
+        <body name="robot_base" pos="0 0 -0.742635" quat="0.7071068 0.7071068 0 0">
+
+            <geom name="base_visual" type="mesh" mesh="base" contype="0" conaffinity="0" />
+
+            
+            <body name="joint1_body" pos="0.828437 0.842635 1.432980">
+
+                <joint name="joint1" type="hinge" axis="0 1 0" range="-1.5708 1.5708" limited="true" damping="5" />
+
+                <geom type="mesh" mesh="base_joint" contype="0" conaffinity="0" />
+
+                
+                <body name="joint2_body" pos="-0.157479 0.220000 -0.001101">
+
+                    <joint name="joint2" type="hinge" axis="1 0 0" range="-1.5708 1.5708" limited="true" damping="5" />
+
+                    <geom type="mesh" mesh="link1" contype="0" conaffinity="0" />
+
+                    
+                    <body name="joint3_body" pos="0.114677 0.462809 0.197913">
+
+                        <joint name="joint3" type="hinge" axis="1 0 0" range="-2.0944 2.0944" limited="true" damping="5" />
+
+                        <geom type="mesh" mesh="link2" contype="0" conaffinity="0" />
+
+                        
+                        <body name="joint4_body" pos="0.059083 0.168351 0.560350">
+
+                            <joint name="joint4" type="hinge" axis="-0.001567 0.287779 0.957695" range="-3.14159 3.14159" limited="true" damping="2" />
+
+                            <geom type="mesh" mesh="wrist_roll" pos="0.005163 -0.004829 0.016037" contype="0" conaffinity="0" />
+
+                            
+                            <body name="joint5_body" pos="0 0 0">
+
+                                <joint name="joint5" type="hinge" axis="-0.758631 0.623616 -0.188633" range="-1.5708 1.5708" limited="true" damping="2" />
+
+                                <geom type="mesh" mesh="wrist_pitch" pos="-0.004733 0.005524 0.037297" contype="0" conaffinity="0" />
+
+                                <geom type="mesh" mesh="wrist_yaw" pos="-0.017462 -0.021140 0.000340" contype="0" conaffinity="0" />
+
+                                
+                                <body name="joint6_body" pos="0.002742 0.019517 0.053494">
+
+                                    <joint name="joint6" type="hinge" axis="-0.639504 -0.768096 0.032608" range="-3.14159 3.14159" limited="true" damping="1" />
+
+                                    <geom name="tool_tip" type="mesh" mesh="end_effector" pos="0.002421 -0.024346 -0.037456" contype="0" conaffinity="0" />
+
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    <geom name="patient_table_top" type="box" pos="1.33974514 -0.82816781 0.69500000" size="0.38000000 1.36000000 0.06000000" rgba="0.72 0.78 0.83 1" contype="0" conaffinity="0" /><geom name="patient_table_pad" type="box" pos="1.33974514 -0.82816781 0.77700000" size="0.34000000 1.31000000 0.02500000" rgba="0.18 0.42 0.61 1" contype="0" conaffinity="0" /><geom name="patient_table_pedestal" type="box" pos="1.33974514 -0.82816781 0.37500000" size="0.16000000 0.37000000 0.26500000" rgba="0.43 0.48 0.53 1" contype="0" conaffinity="0" /><geom name="table_foot_0" type="box" pos="1.33974514 -1.28816781 0.09500000" size="0.29000000 0.15000000 0.03500000" rgba="0.35 0.39 0.44 1" contype="0" conaffinity="0" /><geom name="table_foot_1" type="box" pos="1.33974514 -0.36816781 0.09500000" size="0.29000000 0.15000000 0.03500000" rgba="0.35 0.39 0.44 1" contype="0" conaffinity="0" /><geom name="patient_neck" type="capsule" pos="1.33974514 -1.58416781 1.00618540" size="0.05500000 0.07200000" rgba="0.82 0.63 0.51 1" contype="0" conaffinity="0" quat="0.70710678 0.70710678 0 0" /><geom name="patient_head" type="ellipsoid" pos="1.33974514 -1.75816781 1.06118540" size="0.11800000 0.14200000 0.11500000" rgba="0.85 0.68 0.55 0.73" contype="0" conaffinity="0" /><geom name="patient_hair" type="ellipsoid" pos="1.33974514 -1.75816781 1.09418540" size="0.12000000 0.14400000 0.08600000" rgba="0.23 0.20 0.18 0.48" contype="0" conaffinity="0" /><geom name="patient_eye_0" type="sphere" pos="1.30174514 -1.81316781 1.16618540" size="0.01000000" rgba="0.18 0.16 0.15 0.9" contype="0" conaffinity="0" /><geom name="patient_eye_1" type="sphere" pos="1.37774514 -1.81316781 1.16618540" size="0.01000000" rgba="0.18 0.16 0.15 0.9" contype="0" conaffinity="0" /><geom name="patient_nose" type="sphere" pos="1.33974514 -1.85316781 1.17018540" size="0.01600000" rgba="0.82 0.63 0.51 1" contype="0" conaffinity="0" /><geom name="patient_pillow" type="box" pos="1.33974514 -1.75816781 0.93118540" size="0.17000000 0.17000000 0.03000000" rgba="0.86 0.87 0.91 1" contype="0" conaffinity="0" /><geom name="patient_torso" type="box" pos="1.33974514 -1.22816781 0.97618540" size="0.23500000 0.35000000 0.11500000" rgba="0.32 0.68 0.71 1" contype="0" conaffinity="0" /><geom name="patient_pelvis" type="ellipsoid" pos="1.33974514 -0.74816781 0.95618540" size="0.21000000 0.19000000 0.11500000" rgba="0.32 0.68 0.71 1" contype="0" conaffinity="0" /><geom name="patient_arm_0" type="capsule" pos="1.06974514 -1.15816781 0.94618540" size="0.06200000 0.30000000" rgba="0.82 0.63 0.51 1" contype="0" conaffinity="0" quat="0.70710678 0.70710678 0 0" /><geom name="patient_leg_0" type="capsule" pos="1.20474514 -0.27816781 0.95618540" size="0.08300000 0.39000000" rgba="0.32 0.68 0.71 1" contype="0" conaffinity="0" quat="0.70710678 0.70710678 0 0" /><geom name="patient_arm_1" type="capsule" pos="1.60974514 -1.15816781 0.94618540" size="0.06200000 0.30000000" rgba="0.82 0.63 0.51 1" contype="0" conaffinity="0" quat="0.70710678 0.70710678 0 0" /><geom name="patient_leg_1" type="capsule" pos="1.47474514 -0.27816781 0.95618540" size="0.08300000 0.39000000" rgba="0.32 0.68 0.71 1" contype="0" conaffinity="0" quat="0.70710678 0.70710678 0 0" /><body name="virtual_beam_dot_00" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_00_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_01" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_01_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_02" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_02_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_03" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_03_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_04" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_04_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_05" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_05_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_06" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_06_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_07" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_07_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_08" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_08_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_09" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_09_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_10" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_10_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_11" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_11_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_12" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_12_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_13" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_13_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body><body name="virtual_beam_dot_14" mocap="true" pos="1.12175987 -1.85494476 0.98624111"><geom name="virtual_beam_dot_14_geom" type="sphere" size="0.004" rgba="1 0.84 0.12 0.85" contype="0" conaffinity="0" /></body></worldbody>
+
+    <actuator>
+        <motor name="motor1" joint="joint1" ctrlrange="-80 80" />
+        <motor name="motor2" joint="joint2" ctrlrange="-80 80" />
+        <motor name="motor3" joint="joint3" ctrlrange="-60 60" />
+        <motor name="motor4" joint="joint4" ctrlrange="-25 25" />
+        <motor name="motor5" joint="joint5" ctrlrange="-20 20" />
+        <motor name="motor6" joint="joint6" ctrlrange="-15 15" />
+    </actuator>
+</mujoco>
